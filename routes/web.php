@@ -18,3 +18,8 @@ Route::get('/create', '\App\Http\Controllers\FilialController@create')->name('fi
 Route::post('/store', '\App\Http\Controllers\FilialController@store')->name('filials.store');
 Route::get('/delete/{filial}', '\App\Http\Controllers\FilialController@delete')->name('filials.delete');
 Route::delete('/destroy/{filial}', '\App\Http\Controllers\FilialController@destroy')->name('filials.destroy');
+
+Route::prefix('api/filials')->group(function () {
+    Route::get('/', '\App\Http\Controllers\FilialAPIController@index')->name('api.filials.index');
+    Route::get('/{filial}', '\App\Http\Controllers\FilialAPIController@show')->name('api.filials.show');
+});
