@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', '\App\Http\Controllers\FilialController@index')->name('filials.index');
+Route::get('/create', '\App\Http\Controllers\FilialController@create')->name('filials.create');
+Route::post('/store', '\App\Http\Controllers\FilialController@store')->name('filials.store');
+Route::get('/delete/{filial}', '\App\Http\Controllers\FilialController@delete')->name('filials.delete');
+Route::delete('/destroy/{filial}', '\App\Http\Controllers\FilialController@destroy')->name('filials.destroy');
